@@ -1271,7 +1271,7 @@ function updateItem(item){
       meta.innerHTML = dimsBlock(item.w, item.h, item.ow, item.oh, '');
     } else if (item.kind === 'pdf') {
       fact.textContent = item.pages + (item.pages === 1 ? ' page' : ' pages');
-      meta.textContent = item.kept ? 'Already small, kept as is' : item.picsDone + (item.picsDone === 1 ? ' picture' : ' pictures') + ' squeezed, text untouched';
+      meta.textContent = item.kept ? 'Already small, kept as is' : item.picsDone ? item.picsDone + (item.picsDone === 1 ? ' picture' : ' pictures') + ' squeezed, text untouched' : 'Text kept sharp, file trimmed down';
     } else {
       fact.textContent = (item.outName.split('.').pop() || '').toUpperCase();
       meta.innerHTML = dimsBlock(item.w, item.h, item.ow, item.oh, '');
