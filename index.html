@@ -363,6 +363,10 @@ h1,h2,h3,p{margin:0}
 .faq h2{font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,3.6vw,2.4rem);line-height:1.12;letter-spacing:-.02em}
 .faq details{border-top:1px solid var(--line)}
 .faq details:last-child{border-bottom:1px solid var(--line)}
+/* questions sit in two columns on wider screens so the list stays short */
+.faq-grid{display:grid;grid-template-columns:1fr;column-gap:56px;align-items:start}
+@media (max-width:859px){.faq-col:first-child details:last-child{border-bottom:0}}
+@media (min-width:860px){.faq-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0;font-size:18px;font-weight:600;cursor:pointer;list-style:none}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";font-size:22px;font-weight:400;line-height:1;color:var(--ground-soft);transition:transform .2s}
@@ -580,20 +584,24 @@ dialog::backdrop{background:rgba(26,27,31,.62)}
 
   <section class="faq" aria-labelledby="faq">
     <h2 id="faq">Questions, answered</h2>
-    <div>
-    <details><summary>Is Scrunch really free?</summary><p>Yes, and it always will be. No sign-up, no ads, no watermarks and no cap on how many files you squeeze.</p></details>
-    <details><summary>Are my files uploaded anywhere?</summary><p>Never. Every file is opened and compressed inside your browser, on your own device. Nothing is sent to a server and nothing is kept.</p></details>
-    <details><summary>Does it work offline?</summary><p>Yes. Once the page has loaded, switch off Wi‑Fi and keep going. Saving as AVIF and opening iPhone HEIC photos each fetch a small helper the first time you use them; after that they work offline too.</p></details>
-    <details><summary>What files can it compress?</summary><p>Photos in JPG, PNG, WebP, AVIF and iPhone HEIC. PDFs. Videos in MP4, MOV, WebM and MKV. Mix them in one batch, then save each file on its own or everything as a zip.</p></details>
-    <details><summary>Which format should I save photos as?</summary><p>“Same” keeps each photo’s format, and iPhone HEIC photos come out as JPG so they open anywhere. AVIF makes the smallest files. WebP is nearly as small and opens everywhere. JPG is the safe choice for older apps and upload forms. PNG suits graphics that need exact pixels.</p></details>
-    <details><summary>Can it get a file under a size limit?</summary><p>Yes. Pick “Files under” 500 KB, 1, 2 or 5 MB. Photos lower their quality, then their size, until they fit. PDFs shrink the pictures inside step by step and keep text sharp. Ideal for job portals, government forms and email attachments. A PDF with no pictures can only shrink a little, and videos aren’t affected.</p></details>
-    <details><summary>Will screenshots stay readable?</summary><p>Yes. Scrunch spots screenshots and graphics on its own and keeps text and edges crisp, while photos get the full squeeze. Choose Custom to set the quality yourself.</p></details>
-    <details><summary>Does it remove location data from photos?</summary><p>Yes. Every photo Scrunch re-saves comes out without its location and camera details (EXIF). A photo that’s already as small as possible is handed back untouched, details included.</p></details>
-    <details><summary>How much smaller will my files get?</summary><p>It depends on the file. Photos often come out 50 to 80% smaller on Balanced, and AVIF usually beats JPG and WebP. PDFs shrink most when they’re full of pictures. If a file can’t get any smaller, you get your original back, stamped “As is”.</p></details>
-    <details><summary>What will my files be called?</summary><p>The same name with “-scrunched” on the end, tidied for upload forms: spaces and odd symbols become dashes. “Screen Shot 2026-11-13 at 8.41 PM.png” becomes “Screen-Shot-2026-11-13-at-8.41-PM-scrunched.png”.</p></details>
-    <details><summary>Does it remember my settings?</summary><p>Yes. Your last squeeze level, format and size limit are saved in your own browser, ready for next time. They never leave your device.</p></details>
-    <details><summary>Does it work on my phone?</summary><p>Yes. Scrunch runs in any modern browser on iPhone, Android, Mac and Windows. Video compression needs a recent Chrome, Edge or Safari.</p></details>
-    <details><summary>Is it open source?</summary><p>Yes. The code is on <a href="https://github.com/mohitgupta9994/scrunch" target="_blank" rel="noopener">GitHub</a> under the MIT licence, so anyone can read exactly what it does.</p></details>
+    <div class="faq-grid">
+    <div class="faq-col">
+      <details><summary>Is Scrunch really free?</summary><p>Yes, and it always will be. No sign-up, no ads, no watermarks and no cap on how many files you squeeze.</p></details>
+      <details><summary>Are my files uploaded anywhere?</summary><p>Never. Every file is opened and compressed inside your browser, on your own device. Nothing is sent to a server and nothing is kept.</p></details>
+      <details><summary>Does it work offline?</summary><p>Yes. Once the page has loaded, switch off Wi‑Fi and keep going. Saving as AVIF and opening iPhone HEIC photos each fetch a small helper the first time you use them; after that they work offline too.</p></details>
+      <details><summary>What files can it compress?</summary><p>Photos in JPG, PNG, WebP, AVIF and iPhone HEIC. PDFs. Videos in MP4, MOV, WebM and MKV. Mix them in one batch, then save each file on its own or everything as a zip.</p></details>
+      <details><summary>Which format should I save photos as?</summary><p>“Same” keeps each photo’s format, and iPhone HEIC photos come out as JPG so they open anywhere. AVIF makes the smallest files. WebP is nearly as small and opens everywhere. JPG is the safe choice for older apps and upload forms. PNG suits graphics that need exact pixels.</p></details>
+      <details><summary>Can it get a file under a size limit?</summary><p>Yes. Pick “Files under” 500 KB, 1, 2 or 5 MB. Photos lower their quality, then their size, until they fit. PDFs shrink the pictures inside step by step and keep text sharp. Ideal for job portals, government forms and email attachments. A PDF with no pictures can only shrink a little, and videos aren’t affected.</p></details>
+      <details><summary>Will screenshots stay readable?</summary><p>Yes. Scrunch spots screenshots and graphics on its own and keeps text and edges crisp, while photos get the full squeeze. Choose Custom to set the quality yourself.</p></details>
+    </div>
+    <div class="faq-col">
+      <details><summary>Does it remove location data from photos?</summary><p>Yes. Every photo Scrunch re-saves comes out without its location and camera details (EXIF). A photo that’s already as small as possible is handed back untouched, details included.</p></details>
+      <details><summary>How much smaller will my files get?</summary><p>It depends on the file. Photos often come out 50 to 80% smaller on Balanced, and AVIF usually beats JPG and WebP. PDFs shrink most when they’re full of pictures. If a file can’t get any smaller, you get your original back, stamped “As is”.</p></details>
+      <details><summary>What will my files be called?</summary><p>The same name with “-scrunched” on the end, tidied for upload forms: spaces and odd symbols become dashes. “Screen Shot 2026-11-13 at 8.41 PM.png” becomes “Screen-Shot-2026-11-13-at-8.41-PM-scrunched.png”.</p></details>
+      <details><summary>Does it remember my settings?</summary><p>Yes. Your last squeeze level, format and size limit are saved in your own browser, ready for next time. They never leave your device.</p></details>
+      <details><summary>Does it work on my phone?</summary><p>Yes. Scrunch runs in any modern browser on iPhone, Android, Mac and Windows. Video compression needs a recent Chrome, Edge or Safari.</p></details>
+      <details><summary>Is it open source?</summary><p>Yes. The code is on <a href="https://github.com/mohitgupta9994/scrunch" target="_blank" rel="noopener">GitHub</a> under the MIT licence, so anyone can read exactly what it does.</p></details>
+    </div>
     </div>
   </section>
 </main>
