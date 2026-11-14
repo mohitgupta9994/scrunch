@@ -514,7 +514,7 @@ dialog::backdrop{background:rgba(26,27,31,.62)}
       <p class="tray-empty" id="trayEmpty">Finished files come out here.</p>
     </section>
 
-    <div class="plate" aria-hidden="true"><span class="plate-tag">Model SC-1</span><span class="plate-txt">File compactor · Powered by your browser</span><i class="grille"></i></div>
+    <div class="plate" aria-hidden="true"><span class="plate-tag">Model SC-1</span><span class="plate-txt" data-full="File compactor · Powered by your browser" data-short="File compactor">File compactor · Powered by your browser</span><i class="grille"></i></div>
   </div>
 
   <section class="how" aria-labelledby="how">
@@ -1384,6 +1384,19 @@ dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
 updateNotes();
 renderLcd();
 renderTray();
+
+// plate: when the full line doesn't fit, show just "File compactor" instead of cutting it off
+(() => {
+  const t = document.querySelector('.plate-txt');
+  if (!t) return;
+  const fit = () => {
+    t.textContent = t.dataset.full;
+    if (t.scrollWidth > t.clientWidth + 1) t.textContent = t.dataset.short;
+  };
+  if ('ResizeObserver' in window) new ResizeObserver(fit).observe(t.parentElement);
+  if (document.fonts) document.fonts.ready.then(fit);
+  fit();
+})();
 })();
 </script>
 </body>
