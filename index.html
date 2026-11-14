@@ -175,7 +175,12 @@ h1,h2,h3,p{margin:0}
 #lcdStatus{display:inline-flex;align-items:center;gap:6px;color:var(--lcd-ink);font-weight:700}
 #lcdStatus.ok::before{content:"";flex:none;width:16px;height:16px;border-radius:50%;background:var(--lcd-ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E0F354' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.5 12.5l4.5 4.5 8.5-9.5'/%3E%3C/svg%3E") center/10px 10px no-repeat}
 .lcd{container-type:inline-size}
-.lcd-hero{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:96px}
+/* status line and big number on the left, the % sticker centred on the right across both */
+.lcd-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"top badge" "main badge";align-items:center;gap:4px 16px}
+.lcd-hero .lcd-top{grid-area:top;justify-content:flex-start;gap:8px}
+#lcdCount::before{content:"•";margin-right:8px}
+.lcd-main{grid-area:main;min-height:96px;display:flex;flex-direction:column;justify-content:center}
+.lcd-badge{grid-area:badge;align-self:center}
 .lcd-main{min-width:0}
 .lcd-big{font-family:var(--display);font-weight:800;font-size:min(50px,14cqi,calc((100cqi - 112px) / 4));line-height:.95;letter-spacing:-.04em;font-variant-numeric:tabular-nums;white-space:nowrap}
 .lcd-badge{flex:none;width:96px;height:96px;margin-right:2px;border-radius:50%;background:var(--lcd-ink);color:var(--lcd);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-6deg)}
@@ -389,7 +394,8 @@ dialog::backdrop{background:rgba(26,27,31,.62)}
 }
 /* ---------- small screens ---------- */
 @container (max-width:400px){
-  .lcd-hero{gap:10px;min-height:76px}
+  .lcd-hero{gap:4px 10px}
+  .lcd-main{min-height:76px}
   .lcd-badge{width:74px;height:74px}
   .lcd-badge b{font-size:18px}
   .lcd-badge span{font-size:12px;margin-top:2px}
@@ -462,8 +468,8 @@ dialog::backdrop{background:rgba(26,27,31,.62)}
       <section class="bezel" aria-label="Readout">
         <i class="screw tl" aria-hidden="true" style="--a:-35deg"></i><i class="screw tr" aria-hidden="true" style="--a:60deg"></i><i class="screw bl" aria-hidden="true" style="--a:12deg"></i><i class="screw br" aria-hidden="true" style="--a:-70deg"></i>
         <div class="lcd" id="lcd">
-          <div class="lcd-top"><span id="lcdStatus">Ready</span><span id="lcdCount">0 files</span></div>
           <div class="lcd-hero">
+            <div class="lcd-top"><span id="lcdStatus">Ready</span><span id="lcdCount">0 files</span></div>
             <div class="lcd-main"><p class="lcd-big idle" id="lcdBig">Ready</p><p class="lcd-sub" id="lcdSub" aria-live="polite">Feed me a file. I work offline.</p></div>
             <p class="lcd-badge" id="lcdBadge" hidden><b id="lcdPct">0%</b><span id="lcdPctLabel">smaller</span></p>
           </div>
