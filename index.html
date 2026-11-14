@@ -388,10 +388,14 @@ dialog::backdrop{background:rgba(26,27,31,.62)}
   .lcd-big.idle{font-size:min(44px,14cqi)}
   .lcd-sub{white-space:normal;font-size:14px;line-height:1.25}
 }
-@media (max-width:560px){
+/* header: once logo, status and sound button can't share one row, keep the sound button beside the logo and give the status its own row */
+@media (max-width:840px){
   .top{gap:10px 12px}
   .top .snd{order:2;margin-left:auto}
-  .top .status{order:3;flex-basis:100%;font-size:14px}
+  .top .status{order:3;flex-basis:100%}
+}
+@media (max-width:560px){
+  .top .status{font-size:14px}
   .tray-top{gap:12px 10px}
   .tray-top .key-dim{flex:1 1 30%}
   .tray-top .key-go{flex:2 1 50%}
