@@ -3,13 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Scrunch: shrink images, PDFs and videos privately</title>
-<meta name="description" content="Shrink photos, PDFs and videos right in your browser. Nothing gets uploaded. Works offline.">
+<title>Scrunch: Free Image, PDF &amp; Video Compressor (No Upload)</title>
+<meta name="description" content="Compress photos, PDFs and videos for free, right in your browser. Nothing is uploaded. No sign-up, no ads, no limits. Works offline on phone and desktop.">
+<meta name="author" content="Mohit Gupta">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://scrunch.guptamohit.com/">
 <meta name="theme-color" content="#0E0F11">
-<meta property="og:title" content="Scrunch: shrink files privately">
-<meta property="og:description" content="Shrink photos, PDFs and videos right in your browser. Nothing gets uploaded.">
+<meta property="og:site_name" content="Scrunch">
+<meta property="og:title" content="Scrunch: free image, PDF and video compressor">
+<meta property="og:description" content="Shrink photos, PDFs and videos right in your browser. Free forever. Nothing gets uploaded.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A4%8F%3C/text%3E%3C/svg%3E">
+<meta property="og:url" content="https://scrunch.guptamohit.com/">
+<meta property="og:image" content="https://scrunch.guptamohit.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Scrunch: shrink photos, PDFs and videos in your browser. Nothing gets uploaded.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scrunch: free image, PDF and video compressor">
+<meta name="twitter:description" content="Shrink photos, PDFs and videos right in your browser. Free forever. Nothing gets uploaded.">
+<meta name="twitter:image" content="https://scrunch.guptamohit.com/og.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"Scrunch","url":"https://scrunch.guptamohit.com/","description":"Compress photos, PDFs and videos for free, right in your browser. Nothing is uploaded. No sign-up, no ads, no limits. Works offline on phone and desktop.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript. Video compression needs WebCodecs (recent Chrome, Edge or Safari).","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Compress JPG, PNG, WebP and HEIC images","Compress PDF files","Compress MP4, MOV, WebM and MKV videos","Runs entirely in the browser, no uploads","Works offline","Batch compression with zip download","Removes photo location data"],"image":"https://scrunch.guptamohit.com/og.png","license":"https://opensource.org/licenses/MIT","author":{"@type":"Person","name":"Mohit Gupta","url":"https://guptamohit.com","sameAs":["https://www.linkedin.com/in/mohit9994","https://github.com/mohitgupta9994"]}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Scrunch really free?","acceptedAnswer":{"@type":"Answer","text":"Yes, and it always will be. No sign-up, no ads, no watermarks, and no limit on how many files you compress."}},{"@type":"Question","name":"Are my files uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Scrunch compresses images, PDFs and videos inside your browser, so your files never leave your device. Once the page has loaded it even works offline."}},{"@type":"Question","name":"What files can it compress?","acceptedAnswer":{"@type":"Answer","text":"JPG, PNG and WebP photos (plus HEIC in Safari), PDFs, and MP4, MOV, WebM and MKV videos. Drop a mixed batch and save files one by one or all together as a zip."}},{"@type":"Question","name":"How much smaller will my files get?","acceptedAnswer":{"@type":"Answer","text":"It depends on the file. Photos often come out 50 to 80% smaller on Balanced, and PDFs shrink most when they are full of pictures. If a file can't get any smaller, Scrunch hands back the original."}},{"@type":"Question","name":"Does it work on my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. Scrunch runs in any modern browser on iPhone, Android, Mac and Windows. Video compression needs a recent Chrome, Edge or Safari."}},{"@type":"Question","name":"Is it open source?","acceptedAnswer":{"@type":"Answer","text":"Yes. The code is on GitHub under the MIT licence, so anyone can read exactly what it does."}}]}]</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
@@ -309,6 +326,17 @@ h1,h2,h3,p{margin:0}
 .how-grid div{border-top:3px solid var(--ground-ink);padding-top:14px}
 .how-grid h3{font-size:18px;font-weight:600;margin-bottom:4px}
 .how-grid p{color:var(--ground-soft)}
+.faq{padding:56px 6px 0;display:flex;flex-direction:column;gap:14px}
+.faq h2{font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,3.6vw,2.4rem);line-height:1.12;letter-spacing:-.02em}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0;font-size:18px;font-weight:600;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;font-weight:400;line-height:1;color:var(--ground-soft);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary:focus-visible{outline:2px solid var(--crest);outline-offset:4px;border-radius:4px}
+.faq p{color:var(--ground-soft);max-width:68ch;padding:0 0 18px}
+.faq a{color:var(--ground-ink);font-weight:600;text-underline-offset:3px}
 footer{border-top:1px solid var(--line)}
 .foot{max-width:1320px;margin:0 auto;padding:22px clamp(18px,3vw,30px);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;color:var(--ground-soft)}
 .foot nav{display:flex;gap:20px}
@@ -489,12 +517,25 @@ dialog::backdrop{background:rgba(26,27,31,.62)}
       <div><h3>Only the bulk comes out</h3><p>Photos lose their location data. PDFs keep sharp, selectable text while the pictures inside get smaller. Videos come out as MP4 with the sound left untouched.</p></div>
     </div>
   </section>
+
+  <section class="faq" aria-labelledby="faq">
+    <h2 id="faq">Questions, answered</h2>
+    <div>
+    <details><summary>Is Scrunch really free?</summary><p>Yes, and it always will be. No sign-up, no ads, no watermarks, and no limit on how many files you compress.</p></details>
+    <details><summary>Are my files uploaded anywhere?</summary><p>No. Scrunch compresses images, PDFs and videos inside your browser, so your files never leave your device. Once the page has loaded it even works offline.</p></details>
+    <details><summary>What files can it compress?</summary><p>JPG, PNG and WebP photos (plus HEIC in Safari), PDFs, and MP4, MOV, WebM and MKV videos. Drop a mixed batch and save files one by one or all together as a zip.</p></details>
+    <details><summary>How much smaller will my files get?</summary><p>It depends on the file. Photos often come out 50 to 80% smaller on Balanced, and PDFs shrink most when they are full of pictures. If a file can't get any smaller, Scrunch hands back the original.</p></details>
+    <details><summary>Does it work on my phone?</summary><p>Yes. Scrunch runs in any modern browser on iPhone, Android, Mac and Windows. Video compression needs a recent Chrome, Edge or Safari.</p></details>
+    <details><summary>Is it open source?</summary><p>Yes. The code is on <a href="https://github.com/mohitgupta9994/scrunch" target="_blank" rel="noopener">GitHub</a> under the MIT licence, so anyone can read exactly what it does.</p></details>
+    </div>
+  </section>
 </main>
 
 <footer>
   <div class="foot">
     <span>© Mohit Gupta 2026</span>
     <nav aria-label="Elsewhere">
+      <a href="https://github.com/mohitgupta9994/scrunch" target="_blank" rel="noopener">GitHub</a>
       <a href="https://guptamohit.com" target="_blank" rel="noopener">Portfolio</a>
       <a href="https://www.linkedin.com/in/mohit9994" target="_blank" rel="noopener">LinkedIn</a>
     </nav>
