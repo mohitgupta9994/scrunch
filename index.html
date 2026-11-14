@@ -639,7 +639,7 @@ const state = {level:'balanced', custom:70, format:'same', limit:0, items:[]};
 const limitBytes = () => state.limit * 1000;
 const limitText = kb => kb < 1000 ? kb + ' KB' : (kb / 1000) + ' MB';
 // tidy names for upload forms: spaces and odd symbols become dashes, letters in any language stay
-const cleanBase = name => (name.replace(/\.[^.]+$/, '').normalize('NFC').replace(/[^\p{L}\p{N}._-]+/gu, '-').replace(/-{2,}/g, '-').replace(/^[-.]+|[-.]+$/g, '') || 'file');
+const cleanBase = name => (name.replace(/\.[^.]+$/, '').normalize('NFC').replace(/[^\p{L}\p{M}\p{N}._-]+/gu, '-').replace(/-{2,}/g, '-').replace(/^[-.]+|[-.]+$/g, '') || 'file');
 let settingsVer = 1, busy = false, nextId = 1, shownPct = 0, freshBatch = false, current = null;
 const machine = $('#machine');
 
