@@ -24,6 +24,8 @@ Everything runs client-side in plain HTML, CSS and JavaScript. There is no build
 
 The libraries load from public CDNs (cdnjs and jsDelivr). Fonts are Unbounded and Outfit from Google Fonts.
 
+The hosted version uses [Vercel Web Analytics](https://vercel.com/docs/analytics) to count page visits. It sets no cookies and never sees your files.
+
 ## Run it locally
 
 It is one file. Open `index.html` in a browser, or serve the folder:
