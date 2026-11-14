@@ -1424,16 +1424,17 @@ function updateItem(item){
     else { key = 'u' + p; stampText = sign(p); stampLabel = (-p) + '% bigger'; flat = true; }
     if (item.kind === 'video') {
       fact.textContent = item.dur ? fmtDur(item.dur) : 'MP4';
-      meta.innerHTML = dimsBlock(item.w, item.h, item.ow, item.oh, '');
+      meta.innerHTML = dimsBlock(item.w, item.h, item.ow, item.oh, '') + (item.kept ? '<span class="smart">Already as small as possible</span>' : '');
     } else if (item.kind === 'pdf') {
       fact.textContent = item.pages + (item.pages === 1 ? ' page' : ' pages');
       if (item.limit && !item.fits) meta.textContent = item.pics ? 'Couldn’t get under ' + limitText(item.limit) + '. This is as small as it goes.' : 'Couldn’t get under ' + limitText(item.limit) + '. There are no pictures to shrink.';
       else if (item.limit && !item.kept) meta.textContent = 'Fits under ' + limitText(item.limit) + ', text untouched';
-      else meta.textContent = item.kept ? 'Already small, kept as is' : item.picsDone ? item.picsDone + (item.picsDone === 1 ? ' picture' : ' pictures') + ' squeezed, text untouched' : 'Text kept sharp, file trimmed down';
+      else meta.textContent = item.kept ? 'Already as small as possible' : item.picsDone ? item.picsDone + (item.picsDone === 1 ? ' picture' : ' pictures') + ' squeezed, text untouched' : 'Text kept sharp, file trimmed down';
     } else {
       fact.textContent = (item.outName.split('.').pop() || '').toUpperCase();
       meta.innerHTML = dimsBlock(item.w, item.h, item.ow, item.oh, '')
-        + (item.limit ? (item.fits ? '<span class="smart">Fits under ' + limitText(item.limit) + '</span>' : '<span class="smart warn">Couldn’t get under ' + limitText(item.limit) + '</span>')
+        + (item.kept ? '<span class="smart">Already as small as possible</span>'
+        : item.limit ? (item.fits ? '<span class="smart">Fits under ' + limitText(item.limit) + '</span>' : '<span class="smart warn">Couldn’t get under ' + limitText(item.limit) + '</span>')
         : item.graphic && !item.kept && state.level !== 'custom' ? '<span class="smart">' + (item.w >= 800 && item.h >= 450 ? 'Screenshot, text kept crisp' : 'Graphic, edges kept crisp') + '</span>' : '');
     }
     nw.textContent = fmt(item.kept ? item.file.size : item.out.size); nw.className = 'tk-new';
