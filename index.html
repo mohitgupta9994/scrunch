@@ -180,12 +180,12 @@ h1,h2,h3,p{margin:0}
 .lcd-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"top badge" "main badge";align-items:center;gap:4px 16px}
 .lcd-hero .lcd-top{grid-area:top;justify-content:flex-start;gap:8px}
 #lcdCount::before{content:"•";margin-right:8px}
-.lcd-main{grid-area:main;min-height:96px;display:flex;flex-direction:column;justify-content:center}
+.lcd-main{grid-area:main;min-height:108px;display:flex;flex-direction:column;justify-content:center}
 .lcd-badge{grid-area:badge;align-self:center}
 .lcd-main{min-width:0}
 .lcd-big{font-family:var(--display);font-weight:800;font-size:min(50px,14cqi,calc((100cqi - 112px) / 4));line-height:.95;letter-spacing:-.04em;font-variant-numeric:tabular-nums;white-space:nowrap}
-.lcd-badge{flex:none;width:96px;height:96px;margin-right:2px;border-radius:50%;background:var(--lcd-ink);color:var(--lcd);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-6deg)}
-.lcd-badge b{font-family:var(--display);font-weight:800;font-size:22px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.lcd-badge{--n:4;flex:none;width:108px;height:108px;margin-right:2px;border-radius:50%;background:var(--lcd-ink);color:var(--lcd);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-6deg)}
+.lcd-badge b{font-family:var(--display);font-weight:800;font-size:clamp(14px,calc(86px / (var(--n) * .74)),26px);white-space:nowrap;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .lcd-badge span{font-size:14px;font-weight:600;margin-top:4px;color:#C3D54A}
 .lcd-badge.pop{animation:badgeIn .55s cubic-bezier(.2,1.4,.4,1)}
 @keyframes badgeIn{0%{transform:rotate(-30deg) scale(.2);opacity:0}100%{transform:rotate(-6deg) scale(1);opacity:1}}
@@ -247,12 +247,15 @@ h1,h2,h3,p{margin:0}
 .fmt>span{font-size:14px;font-weight:600;white-space:nowrap}
 .fmt .keys{flex:1;min-width:0}
 .fmt>span{min-width:5.4em}
-.fmt+.fmt{padding-top:0}
+.fmt+.fmt{padding-top:12px}
 .keys.five{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
 .keys.five{gap:5px}
 .keys.five .key{padding:12px 0;font-size:13px}
+/* the two format rows: shorter keys and a real gap so they don't crowd each other */
+.fmt .keys .key{min-height:40px;padding-top:9px;padding-bottom:9px}
+.fmt .keys input:focus-visible+.key{outline-width:2px;outline-offset:2px}
 /* smart quality: a small note on tickets for screenshots and graphics */
-.smart{display:inline-flex;align-items:center;gap:5px;margin-top:6px;font-size:12px;font-weight:600;color:#3F4A06;background:#EEF6B8;border-radius:999px;padding:2px 9px 2px 7px;width:max-content;max-width:100%}
+.smart{display:flex;align-items:center;gap:5px;margin-top:5px;font-size:12px;font-weight:600;color:#5E6B0A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .smart svg{flex:none}
 .custom{display:none;align-items:center;gap:12px;margin:8px 0 6px}
 .custom.show{display:flex}
@@ -404,9 +407,9 @@ dialog::backdrop{background:rgba(26,27,31,.62)}
 /* ---------- small screens ---------- */
 @container (max-width:400px){
   .lcd-hero{gap:4px 10px}
-  .lcd-main{min-height:76px}
-  .lcd-badge{width:74px;height:74px}
-  .lcd-badge b{font-size:18px}
+  .lcd-main{min-height:86px}
+  .lcd-badge{width:86px;height:86px}
+  .lcd-badge b{font-size:clamp(12px,calc(66px / (var(--n) * .74)),20px)}
   .lcd-badge span{font-size:12px;margin-top:2px}
   .lcd-big{font-size:min(44px,calc((100cqi - 84px) / 4.2))}
   .lcd-big.idle{font-size:min(44px,14cqi)}
@@ -1298,7 +1301,7 @@ function renderLcd(final){
   st.textContent = 'Done'; st.classList.add('ok');
   const badge = $('#lcdBadge');
   badge.hidden = false;
-  $('#lcdPct').textContent = sign(p);
+  $('#lcdPct').textContent = sign(p); badge.style.setProperty('--n', Math.max(3, sign(p).length));
   $('#lcdPctLabel').textContent = p > 0 ? 'smaller' : p < 0 ? 'bigger' : 'same size';
   $('#barInV').textContent = fmt(tin); $('#barOutV').textContent = fmt(tout);
   $('#barOut').style.width = Math.max(2, Math.min(100, tout / tin * 100)) + '%';
