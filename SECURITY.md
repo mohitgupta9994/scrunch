@@ -4,7 +4,7 @@ Scrunch is a static web page. There is no server, no database, no login and no f
 
 ## What protects the site
 
-- **Locked-down network access.** A Content Security Policy (set in `vercel.json`) only lets the page load code from itself and two pinned public CDNs (cdnjs and jsDelivr) and fonts from Google Fonts. The page may only send data back to its own address, so even a misbehaving library could not post your files to some other server.
+- **Locked-down network access.** A Content Security Policy (set in `vercel.json`) only lets the page load code from itself and two pinned public CDNs (cdnjs and jsDelivr) and fonts from Google Fonts. Network requests are limited to the site itself and jsDelivr, the read-only code CDN the AVIF codec downloads from, so even a misbehaving library could not post your files to some other server.
 - **Can't be framed.** Other sites can't embed Scrunch in a hidden frame to trick people into clicking things (`frame-ancestors 'none'`, `X-Frame-Options: DENY`).
 - **No extra device access.** Camera, microphone, location, payment and similar browser features are switched off for the page.
 - **HTTPS only**, with strict transport security.

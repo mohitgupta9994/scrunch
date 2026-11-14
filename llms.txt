@@ -18,7 +18,7 @@ Source code (MIT licence): https://github.com/mohitgupta9994/scrunch
 ## What it does
 
 - Photos: JPG, PNG, WebP, AVIF and HEIC (iPhone photos, in every browser). Re-encodes at a chosen quality, resizes very large photos, removes location (GPS/EXIF) data, and can shrink to fit a size limit. Save as the same format, JPG, WebP, AVIF or PNG. Before/after compare slider.
-- Smart quality: screenshots and graphics are detected automatically and kept sharp, while photos get the full squeeze.
+- Smart quality: screenshots and graphics are detected automatically and kept crisp, while photos get the full squeeze.
 - PDFs: recompresses the pictures inside the PDF; text stays sharp and selectable. Optional size limit: "Files under" 500 KB, 1, 2 or 5 MB (photos and PDFs), for job portals, government forms and email attachments. Text-only PDFs are restructured to be smaller.
 - Videos: MP4, MOV, WebM, MKV. Re-encoded to MP4 (H.264) with the browser's built-in video hardware (WebCodecs); sound is kept. Light (1080p), Balanced (720p) or Max (480p).
 - Squeeze levels: Light, Balanced, Max and Custom.
@@ -30,7 +30,7 @@ Source code (MIT licence): https://github.com/mohitgupta9994/scrunch
 ## Privacy
 
 - 100% client-side: built with the Canvas API, pdf-lib, Mediabunny/WebCodecs, JSZip, and WebAssembly AVIF (jSquash) and HEIC (libheif) codecs loaded on demand.
-- A Content Security Policy only allows the page to send data to its own address, so files cannot be sent anywhere.
+- A Content Security Policy limits network requests to the site itself and a read-only code CDN (for codecs), so files cannot be sent anywhere.
 - Only anonymous, cookie-free page-visit counts (Vercel Web Analytics). File names and contents are never seen.
 
 ## Browser support

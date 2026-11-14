@@ -29,7 +29,7 @@ The full code is in this repository under the [MIT License](LICENSE). You can re
 ## What it does
 
 - **Photos** (JPG, PNG, WebP, AVIF, HEIC): re-encoded at the quality you pick, large photos resized, location data removed. Save as the same format, JPG, WebP, AVIF or PNG. iPhone HEIC photos open in every browser.
-- **Smart quality:** screenshots and graphics are spotted automatically and kept sharp; photos get the full squeeze.
+- **Smart quality:** screenshots and graphics are spotted automatically and kept crisp; photos get the full squeeze.
 - **PDFs:** the pictures inside are recompressed; text stays sharp and selectable.
 - **Size limit:** pick "Files under" 500 KB, 1, 2 or 5 MB. Photos lower their quality, then their size, until they fit; PDFs step their pictures down. Videos are not affected.
 - **File names** are tidied for upload forms (spaces and odd symbols become dashes) and end in `-scrunched`.

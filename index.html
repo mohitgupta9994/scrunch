@@ -1322,7 +1322,7 @@ function renderLcd(final){
     a.textContent = i.file.name;
     if (!isSettled(i)) b.textContent = i === current ? (i.kind === 'video' && i.progress ? Math.floor(i.progress * 100) + '%' : 'scrunching') : 'waiting';
     else if (i.status === 'error') b.textContent = 'jammed';
-    else if (i.kept) { b.textContent = fmt(i.file.size); const k = document.createElement('span'); k.className = 'kept'; k.textContent = 'kept'; b.appendChild(k); }
+    else if (i.kept) { b.textContent = fmt(i.file.size); const k = document.createElement('span'); k.className = 'kept'; k.textContent = 'as is'; b.appendChild(k); }
     else b.textContent = fmt(i.file.size) + ' → ' + fmt(i.out.size);
     d.appendChild(a); d.appendChild(b); rows.appendChild(d);
   });
@@ -1353,7 +1353,7 @@ function renderLcd(final){
   if (p > 0) {
     sub.textContent = 'saved on this batch';
     if (final) tween(0, diff, 900, v => big.textContent = fmt(Math.round(v))); else big.textContent = fmt(diff);
-  } else if (p < 0) { big.textContent = '+' + fmt(-diff); sub.textContent = 'bigger. Try JPG, WebP or Max.'; }
+  } else if (p < 0) { big.textContent = '+' + fmt(-diff); sub.textContent = 'bigger. Try Same, WebP or Max.'; }
   else { big.textContent = '0 KB'; sub.textContent = 'already as small as it gets'; }
   if (final && !calm) { badge.classList.remove('pop'); void badge.offsetWidth; badge.classList.add('pop'); }
   if (final && document.hidden) document.title = '✓ Done: ' + done.length + (done.length === 1 ? ' file' : ' files') + ' · Scrunch';
@@ -1446,6 +1446,7 @@ function updateItem(item){
       fact.textContent = (item.outName.split('.').pop() || '').toUpperCase();
       meta.innerHTML = dimsBlock(item.w, item.h, item.ow, item.oh, '')
         + (item.kept ? '<span class="smart">Already as small as possible</span>'
+        : item.out.size > item.file.size ? '<span class="smart warn">Bigger as ' + fact.textContent + (state.format === 'same' ? ', opens anywhere' : ', try Same') + '</span>'
         : item.limit ? (item.fits ? '<span class="smart">Fits under ' + limitText(item.limit) + '</span>' : '<span class="smart warn">Couldn’t get under ' + limitText(item.limit) + '</span>')
         : item.graphic && !item.kept && state.level !== 'custom' ? '<span class="smart">' + (item.w >= 800 && item.h >= 450 ? 'Screenshot, text kept crisp' : 'Graphic, edges kept crisp') + '</span>' : '');
     }
