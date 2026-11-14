@@ -66,7 +66,7 @@ h1,h2,h3,p{margin:0}
 :focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:10px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-.wrap{max-width:1320px;margin:0 auto;padding:clamp(12px,2.5vw,26px) clamp(12px,2.5vw,24px) 56px}
+.wrap{max-width:1440px;margin:0 auto;padding:clamp(12px,2.5vw,26px) clamp(12px,2.5vw,24px) 56px}
 
 /* ---------- the machine ---------- */
 .machine{position:relative;background:var(--body);color:var(--ink);border-radius:36px;padding:clamp(14px,2vw,22px) clamp(14px,2vw,22px) calc(clamp(14px,2vw,22px) + 16px);display:flex;flex-direction:column;gap:16px;box-shadow:inset 0 2px 0 var(--body-hi),inset 0 -8px 0 var(--body-lo),0 34px 60px var(--shadow)}
@@ -170,7 +170,7 @@ h1,h2,h3,p{margin:0}
 .keys.four .key{padding:12px 2px;font-size:14px}
 
 /* LCD */
-.bezel{flex:1.3 1 360px;min-width:0;background:var(--panel);background-image:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,0) 55%);border-radius:24px;padding:14px;display:flex;box-shadow:inset 0 2px 0 var(--panel-hi),inset 0 -3px 0 var(--panel-lo),var(--panel-lift)}
+.bezel{flex:1.05 1 340px;min-width:0;background:var(--panel);background-image:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,0) 55%);border-radius:24px;padding:14px;display:flex;box-shadow:inset 0 2px 0 var(--panel-hi),inset 0 -3px 0 var(--panel-lo),var(--panel-lift)}
 .lcd{position:relative;overflow:hidden;flex:1;min-width:0;background:var(--lcd);color:var(--lcd-ink);border-radius:14px;padding:16px 20px;box-shadow:0 0 0 1px rgba(0,0,0,.55),0 1px 0 1px rgba(255,255,255,.1),inset 0 2px 8px rgba(40,48,10,.35),inset 0 0 0 1px rgba(255,255,255,.25);display:flex;flex-direction:column;gap:4px}
 .lcd::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.22),rgba(255,255,255,0) 38%);pointer-events:none}
 .lcd::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.05) 0,rgba(0,0,0,.05) 1px,transparent 1px,transparent 3px);pointer-events:none}
@@ -216,7 +216,7 @@ h1,h2,h3,p{margin:0}
 .lcd-rows .hint{color:var(--lcd-soft)}
 
 /* controls */
-.panel{flex:1.4 1 390px;min-width:0;background:var(--panel);border-radius:24px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;box-shadow:inset 0 2px 0 var(--panel-hi),inset 0 -3px 0 var(--panel-lo),var(--panel-lift)}
+.panel{container:panel/inline-size;flex:1.5 1 400px;min-width:0;background:var(--panel);border-radius:24px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;box-shadow:inset 0 2px 0 var(--panel-hi),inset 0 -3px 0 var(--panel-lo),var(--panel-lift)}
 .panel h2{font-size:16px;font-weight:600}
 .panel h2#lvLabel{font-size:18px;font-weight:600;line-height:1.3}
 .sq-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
@@ -257,7 +257,7 @@ h1,h2,h3,p{margin:0}
 .keys.five{gap:5px}
 .keys.five .key{padding:12px 0;font-size:13px}
 /* the two format rows: shorter keys and a real gap so they don't crowd each other */
-.fmt .keys .key{display:flex;align-items:center;justify-content:center;min-height:34px;padding-top:6px;padding-bottom:6px}
+.fmt .keys .key{display:flex;align-items:center;justify-content:center;white-space:nowrap;padding-left:0;padding-right:0;min-height:34px;padding-top:6px;padding-bottom:6px}
 .fmt .keys input:focus-visible+.key{outline-width:2px;outline-offset:2px}
 /* smart quality: a small note on tickets for screenshots and graphics */
 .smart{position:relative;z-index:1;display:flex;align-items:center;gap:5px;margin-top:5px;margin-right:-64px;font-size:12px;font-weight:600;color:#5E6B0A;white-space:nowrap}
@@ -369,7 +369,7 @@ h1,h2,h3,p{margin:0}
 .faq p{color:var(--ground-soft);max-width:68ch;padding:0 0 18px}
 .faq a{color:var(--ground-ink);font-weight:600;text-underline-offset:3px}
 footer{border-top:1px solid var(--line)}
-.foot{max-width:1320px;margin:0 auto;padding:22px clamp(18px,3vw,30px);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;color:var(--ground-soft)}
+.foot{max-width:1440px;margin:0 auto;padding:22px clamp(18px,3vw,30px);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;color:var(--ground-soft)}
 .foot nav{display:flex;gap:20px}
 .foot a{color:var(--ground-ink);font-weight:600;text-underline-offset:3px}
 .foot a:hover{color:var(--orange)}
@@ -409,6 +409,11 @@ dialog::backdrop{background:rgba(26,27,31,.62)}
   .machine>.screw.tl{left:12px;top:12px}.machine>.screw.tr{right:12px;top:12px}.machine>.screw.bl{left:12px;bottom:14px}.machine>.screw.br{right:12px;bottom:14px}
   .plate-txt{display:none}
   .plate{padding:2px 18px 0}
+}
+/* key labels never wrap: when the controls panel gets narrow, the row labels move above the keys */
+@container panel (max-width:430px){
+  .fmt{flex-wrap:wrap}
+  .fmt>span{flex-basis:100%}
 }
 /* ---------- small screens ---------- */
 @container (max-width:400px){
