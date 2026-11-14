@@ -68,7 +68,7 @@ h1,h2,h3,p{margin:0}
 .wrap{max-width:1320px;margin:0 auto;padding:clamp(12px,2.5vw,26px) clamp(12px,2.5vw,24px) 56px}
 
 /* ---------- the machine ---------- */
-.machine{position:relative;background:var(--body);color:var(--ink);border-radius:36px;padding:clamp(14px,2vw,22px);display:flex;flex-direction:column;gap:16px;box-shadow:inset 0 2px 0 var(--body-hi),inset 0 -8px 0 var(--body-lo),0 34px 60px var(--shadow)}
+.machine{position:relative;background:var(--body);color:var(--ink);border-radius:36px;padding:clamp(14px,2vw,22px) clamp(14px,2vw,22px) calc(clamp(14px,2vw,22px) + 16px);display:flex;flex-direction:column;gap:16px;box-shadow:inset 0 2px 0 var(--body-hi),inset 0 -8px 0 var(--body-lo),0 34px 60px var(--shadow)}
 .machine.working{animation:rumble .18s linear infinite}
 @keyframes rumble{0%,100%{transform:translate(0,0)}25%{transform:translate(.7px,-.6px)}50%{transform:translate(-.6px,.5px)}75%{transform:translate(.5px,.6px)}}
 
@@ -108,10 +108,10 @@ h1,h2,h3,p{margin:0}
 .bezel .screw{width:6px;height:6px;background:radial-gradient(circle at 35% 30%,#9A9DA3,#2B2C30 80%);box-shadow:0 0 0 1px rgba(0,0,0,.35)}
 .bezel .screw::after{left:1px;right:1px;height:1px;margin-top:-.5px;background:rgba(0,0,0,.45)}
 .bezel .screw.tl{left:9px;top:9px}.bezel .screw.tr{right:9px;top:9px}.bezel .screw.bl{left:9px;bottom:9px}.bezel .screw.br{right:9px;bottom:9px}
-.plate{display:flex;align-items:center;gap:12px;padding:0 10px;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);white-space:nowrap}
+.plate{display:flex;align-items:center;gap:12px;padding:4px 26px 0;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);white-space:nowrap}
 .plate-tag{padding:3px 9px;border-radius:5px;box-shadow:inset 0 1px 2px rgba(0,0,0,.28),0 1px 0 var(--body-hi)}
 .plate-txt{overflow:hidden;text-overflow:ellipsis;min-width:0}
-.grille{flex:none;margin-left:auto;margin-right:12px;width:64px;height:14px;background:radial-gradient(circle,var(--body-lo) 1.7px,transparent 2.1px) 0 0/8px 7px repeat}
+.grille{flex:none;margin-left:auto;width:64px;height:14px;background:radial-gradient(circle,var(--body-lo) 1.7px,transparent 2.1px) 0 0/8px 7px repeat}
 
 .modules{display:flex;flex-wrap:wrap;gap:20px;align-items:stretch}
 
@@ -377,6 +377,7 @@ dialog::backdrop{background:rgba(26,27,31,.62)}
   .machine>.screw{width:8px;height:8px}
   .machine>.screw.tl{left:12px;top:12px}.machine>.screw.tr{right:12px;top:12px}.machine>.screw.bl{left:12px;bottom:14px}.machine>.screw.br{right:12px;bottom:14px}
   .plate-txt{display:none}
+  .plate{padding:2px 18px 0}
 }
 /* ---------- small screens ---------- */
 @container (max-width:400px){
