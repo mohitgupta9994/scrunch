@@ -28,10 +28,12 @@ The full code is in this repository under the [MIT License](LICENSE). You can re
 
 ## What it does
 
-- **Photos** (JPG, PNG, WebP, HEIC in Safari): re-encoded at the quality you pick, large photos resized, location data removed. Save as the same format, JPG, WebP or PNG.
-- **PDFs:** the pictures inside are recompressed; text stays sharp and selectable.
+- **Photos** (JPG, PNG, WebP, AVIF, HEIC): re-encoded at the quality you pick, large photos resized, location data removed. Save as the same format, JPG, WebP, AVIF or PNG. iPhone HEIC photos open in every browser.
+- **Smart quality:** screenshots and graphics are spotted automatically and kept sharp; photos get the full squeeze.
+- **PDFs:** the pictures inside are recompressed; text stays sharp and selectable. Set a size limit (under 1, 2 or 5 MB) and Scrunch steps the pictures down until the file fits.
 - **Videos** (MP4, MOV, WebM, MKV): re-encoded with the browser's built-in video hardware, saved as MP4, sound left untouched.
 - Four squeeze levels (Light, Balanced, Max, Custom), before/after compare for photos, save one file or everything as a .zip.
+- Your last settings are remembered in your own browser (nothing is sent anywhere).
 
 ## How it works
 
@@ -39,7 +41,7 @@ Everything runs client-side in plain HTML, CSS and JavaScript. There is no build
 
 | Job | Done with |
 | --- | --- |
-| Images | Canvas API |
+| Images | Canvas API, plus WebAssembly codecs loaded only when needed: [jSquash AVIF](https://github.com/jamsinclair/jSquash) for AVIF output and [heic-to](https://github.com/hoppergee/heic-to) (libheif) for HEIC outside Safari |
 | PDFs | [pdf-lib](https://github.com/Hopding/pdf-lib) |
 | Video | [Mediabunny](https://github.com/Vanilagy/mediabunny) on top of WebCodecs |
 | Zip download | [JSZip](https://github.com/Stuk/jszip) |
