@@ -260,8 +260,7 @@ h1,h2,h3,p{margin:0}
 .fmt .keys .key{display:flex;align-items:center;justify-content:center;white-space:nowrap;padding-left:0;padding-right:0;min-height:34px;padding-top:6px;padding-bottom:6px}
 .fmt .keys input:focus-visible+.key{outline-width:2px;outline-offset:2px}
 /* smart quality: a small note on tickets for screenshots and graphics */
-.smart{position:relative;z-index:1;display:flex;align-items:center;gap:5px;margin-top:5px;margin-right:-64px;font-size:12px;font-weight:600;color:#5E6B0A;white-space:nowrap}
-.smart svg{flex:none}
+.smart{position:relative;z-index:1;display:block;margin-top:3px;margin-right:-64px;font-size:13px;color:#55565B;white-space:nowrap}
 .smart.warn{color:#8A4B12}
 .custom{display:none;align-items:center;gap:12px;margin:8px 0 6px}
 .custom.show{display:flex}
@@ -344,7 +343,7 @@ h1,h2,h3,p{margin:0}
 .tk-stub button:active{transform:translateY(2px)}
 .tk-stub button:disabled{opacity:.4;cursor:default;transform:none}
 .tk-stub button{padding:9px 18px}
-.tk-stub button.tk-cmp{width:44px;height:44px;min-height:44px;padding:0;margin-right:-8px;display:flex;align-items:center;justify-content:center;background:#ECEDEF;color:var(--forest-ink);border-radius:10px}
+.tk-stub button.tk-cmp{width:44px;height:44px;min-height:44px;padding:0;margin-right:-8px;display:flex;align-items:center;justify-content:center;background:#ECEDEF;color:var(--forest-ink);border-radius:10px;box-shadow:inset 0 0 0 1px rgba(29,29,31,.14)}
 .tk-stub button.tk-cmp:hover{background:#DFE1E4}
 .tk-stub button.tk-cmp svg{width:20px;height:20px}
 .tk-stub button.tk-cmp:disabled{background:#ECEDEF}
@@ -1431,10 +1430,9 @@ function updateItem(item){
       else meta.textContent = item.kept ? 'Already small, kept as is' : item.picsDone ? item.picsDone + (item.picsDone === 1 ? ' picture' : ' pictures') + ' squeezed, text untouched' : 'Text kept sharp, file trimmed down';
     } else {
       fact.textContent = (item.outName.split('.').pop() || '').toUpperCase();
-      const SPARK = '<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.3L20.5 10l-6.3 2.2L12 18.5l-2.2-6.3L3.5 10l6.3-1.7z"/></svg>';
       meta.innerHTML = dimsBlock(item.w, item.h, item.ow, item.oh, '')
-        + (item.limit ? (item.fits ? '<span class="smart"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Fits under ' + limitText(item.limit) + '</span>' : '<span class="smart warn">Couldn’t get under ' + limitText(item.limit) + '</span>')
-        : item.graphic && !item.kept && state.level !== 'custom' ? '<span class="smart"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.3L20.5 10l-6.3 2.2L12 18.5l-2.2-6.3L3.5 10l6.3-1.7z"/></svg>' + (item.w >= 800 && item.h >= 450 ? 'Screenshot, kept sharp' : 'Graphic, kept sharp') + '</span>' : '');
+        + (item.limit ? (item.fits ? '<span class="smart">Fits under ' + limitText(item.limit) + '</span>' : '<span class="smart warn">Couldn’t get under ' + limitText(item.limit) + '</span>')
+        : item.graphic && !item.kept && state.level !== 'custom' ? '<span class="smart">' + (item.w >= 800 && item.h >= 450 ? 'Screenshot, text kept crisp' : 'Graphic, edges kept crisp') + '</span>' : '');
     }
     nw.textContent = fmt(item.kept ? item.file.size : item.out.size); nw.className = 'tk-new';
     old.textContent = fmt(item.file.size); old.hidden = !!item.kept;
