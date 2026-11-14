@@ -22,7 +22,9 @@ Source code (MIT licence): https://github.com/mohitgupta9994/scrunch
 - PDFs: recompresses the pictures inside the PDF; text stays sharp and selectable. Optional size limit: "Files under" 500 KB, 1, 2 or 5 MB (photos and PDFs), for job portals, government forms and email attachments. Text-only PDFs are restructured to be smaller.
 - Videos: MP4, MOV, WebM, MKV. Re-encoded to MP4 (H.264) with the browser's built-in video hardware (WebCodecs); sound is kept. Light (1080p), Balanced (720p) or Max (480p).
 - Squeeze levels: Light, Balanced, Max and Custom.
-- If a file can't get smaller, Scrunch gives back the original.
+- If a file can't get smaller, Scrunch gives back the original, marked "As is".
+- File names are tidied for upload forms (spaces and odd symbols become dashes) and end in "-scrunched".
+- Saving as AVIF and opening HEIC fetch a small codec the first time they are used; everything else works offline once the page has loaded.
 - Remembers the last settings used, stored only in the visitor's own browser.
 
 ## Privacy

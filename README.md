@@ -12,7 +12,7 @@ Scrunch is free and will always be free. No paywall, no premium tier, no sign-up
 
 - Your files are opened, squeezed and saved inside your browser tab. They are never uploaded anywhere.
 - There is no server that could receive a file, so there is nothing to store, sell or leak.
-- Load the page, turn off Wi‑Fi, and it still works. That is the simplest way to check.
+- Load the page, turn off Wi‑Fi, and it still works. That is the simplest way to check. (Saving as AVIF and opening HEIC photos fetch a small codec the first time you use them.)
 - Close the tab and everything is gone. Scrunch keeps no copy of anything.
 
 ## Privacy
@@ -36,6 +36,7 @@ The full code is in this repository under the [MIT License](LICENSE). You can re
 - When a batch finishes while you are in another tab, the tab title changes to "✓ Done".
 - **Videos** (MP4, MOV, WebM, MKV): re-encoded with the browser's built-in video hardware, saved as MP4, sound left untouched.
 - Four squeeze levels (Light, Balanced, Max, Custom), before/after compare for photos, save one file or everything as a .zip.
+- If a file can't get any smaller you get the original back, stamped "As is".
 - Your last settings are remembered in your own browser (nothing is sent anywhere).
 
 ## How it works
