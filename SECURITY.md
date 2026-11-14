@@ -8,7 +8,7 @@ Scrunch is a static web page. There is no server, no database, no login and no f
 - **Can't be framed.** Other sites can't embed Scrunch in a hidden frame to trick people into clicking things (`frame-ancestors 'none'`, `X-Frame-Options: DENY`).
 - **No extra device access.** Camera, microphone, location, payment and similar browser features are switched off for the page.
 - **HTTPS only**, with strict transport security.
-- **Pinned library versions.** JSZip 3.10.1, pdf-lib 1.17.1 and Mediabunny 1.61.0 are loaded by exact version, never "latest".
+- **Pinned library versions.** JSZip 3.10.1, pdf-lib 1.17.1, Mediabunny 1.61.0, jSquash AVIF 2.1.1 (with wasm-feature-detect 1.8.0) and heic-to 1.6.7 are loaded by exact version, never "latest". The AVIF and HEIC codecs are WebAssembly and only load when you use them; the policy allows WebAssembly to run but still blocks any other code from outside these sources.
 - **Only the owner can change the live site.** Forks and pull requests from other people never deploy to scrunch.guptamohit.com; only changes merged into `main` by the owner do.
 
 ## Reporting a problem
