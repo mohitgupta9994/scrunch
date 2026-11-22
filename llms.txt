@@ -31,7 +31,7 @@ Source code (MIT licence): https://github.com/mohitgupta9994/scrunch
 
 - 100% client-side: built with the Canvas API, pdf-lib, Mediabunny/WebCodecs, JSZip, and WebAssembly AVIF (jSquash) and HEIC (libheif) codecs loaded on demand.
 - A Content Security Policy limits network requests to the site itself and a read-only code CDN (for codecs), so files cannot be sent anywhere.
-- Only anonymous, cookie-free page-visit counts (Vercel Web Analytics). File names and contents are never seen.
+- Only anonymous, cookie-free counts (Vercel Web Analytics): page visits, plus rounded counts of file types squeezed and space saved. File names, contents and exact sizes are never seen.
 
 ## Browser support
 

@@ -17,8 +17,8 @@ Scrunch is free and will always be free. No paywall, no premium tier, no sign-up
 
 ## Privacy
 
-- No account, no cookies, no tracking of what you compress.
-- The hosted site counts anonymous page visits with [Vercel Web Analytics](https://vercel.com/docs/analytics). It never sees file names, file contents or anything you drop in.
+- No account, no cookies. Your files never leave your device.
+- The hosted site uses [Vercel Web Analytics](https://vercel.com/docs/analytics) for anonymous, cookie-free counts: page visits, and rounded counts of what gets squeezed (file type like photo, PDF or video, roughly how many, roughly how much space was saved). It never sees file names, file contents or exact sizes.
 - Photos have their location data (EXIF/GPS) removed when they are re-saved.
 - The only things the page fetches from the internet are its own code libraries and fonts (see below), the same for every visitor.
 
